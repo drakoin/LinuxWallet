@@ -1,3 +1,8 @@
+# new version 22/10/2014 
+# - relative paths
+# - always assumes 'yes' in apt-get
+
+
 # Your wallet in the cloud - new manual
 # see www.tiny.cc/linuxMUE for what this is.
 #
@@ -26,7 +31,7 @@
 sudo apt-get update; sudo apt-get upgrade
 
 # prep the system to be able to git & compile & build
-sudo apt-get install git make automake build-essential libboost-all-dev nano
+sudo apt-get install git make automake build-essential libboost-all-dev nano -y
 
 # might be necessary for other tools & distros (for this wallet on Debian 7 it is not):
 # apt-get install yasm binutils libcurl4-openssl-dev openssl libssl-dev 
@@ -40,12 +45,12 @@ sudo mkswap /swapfile; sudo swapon /swapfile
 # which is not supported by newest ubuntu / debian anymore, so we get it manually:
 
 # Get db4.8 source, compile and install (takes 5 minutes)
-cd ~
 wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
 tar zxf db-4.8.30.NC.tar.gz
 cd db-4.8.30.NC/build_unix; ../dist/configure --enable-cxx
 make; sudo make install
-rm -R ~/db-4.8.30.NC*   # delete the sources
+cd ../..
+rm -R db-4.8.30.NC*   # delete the sources
 
 # Link the libraries 
 sudo ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/lib/libdb-4.8.so
