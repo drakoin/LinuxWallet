@@ -5,11 +5,11 @@
 # part 2 of the complete instructions how to compile a wallet daemon from github sources
 
 
-# new version 5.4 
+# new version 5.42
 # - relative paths where possible
 # - assumes 'yes' in apt-get
 # - sudo only where necessary ( cp to /usr/local/bin )
-# - automatically generate random rpcpassword
+# - automatically generate a random rpcpassword
 
 
 # where to find db4.8 tell your system  (needs to be redone after reboot)
@@ -28,8 +28,7 @@ make -f makefile.unix USE_UPNP=-
 sudo cp monetaryunitd /usr/local/bin
 cd ../..
 
-# create config file in HOME folder 
-# - copy-paste all in one go. Make sure to change your password.
+# create config file in HOME folder: 
 
 mkdir ~/.monetaryunit
 cat << "CONFIG" >> ~/.monetaryunit/monetaryunit.conf
@@ -45,7 +44,7 @@ CONFIG
 function randpw { < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-25};echo;}
 YOURPASS=$(randpw)
 sed -i 's/VERYSECURESUPERLONGSUPERSAFEPASSWORD/'$YOURPASS'/g' ~/.monetaryunit/monetaryunit.conf
-# accessible only for this user:
+# restrict access to .monetaryunit to only this user:
 chmod 700 ~/.monetaryunit/monetaryunit.conf
 chmod 700 ~/.monetaryunit
 ls -la ~/.monetaryunit
@@ -54,18 +53,18 @@ echo
 echo your random RPC password is $YOURPASS
 echo but you can simply always look it up with 
 echo less ~/.monetaryunit/monetaryunit.conf
-echo --> 
+echo and search for this line:
 cat ~/.monetaryunit/monetaryunit.conf | grep rpcpassword
+echo
 
 
-
-# start server. Should result in: "Monetaryunit server starting"
+echo start server. Should result in: "Monetaryunit server starting"
 monetaryunitd
 
 echo
 echo DONE. READY.
 echo
-echo to change your RPC password, edit monetaryunit.conf  then restart server:
+echo to change your RPC password, edit monetaryunit.conf , then restart server:
 echo nano ~/.monetaryunit/monetaryunit.conf
 echo "monetaryunitd stop; sleep 2; monetaryunitd"
 echo
