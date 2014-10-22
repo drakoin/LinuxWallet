@@ -1,14 +1,16 @@
-# new version v5.4
-# - relative paths
-# - always assumes 'yes' in apt-get
-
-
 # Your wallet in the cloud - new manual
 # see www.tiny.cc/linuxMUE for what this is.
 #
 # part 1: prepare the system
 # part 1 of the complete instructions how to compile a wallet daemon from github sources
 
+echo 
+echo walletSystemPrep.sh by DRAKOIN - version v5.43
+# - relative paths
+# - always assumes 'yes' in apt-get
+# rm -f because of 'remove write-protected ...' questions
+
+echo 
 # I succeeded with this on Ubuntu 12.04 and Debian 7.0 x64.
 # With swapfile, it will work even on the smallest Digital Ocean 5$ droplet (0.5GB RAM) ! 
 # What?  "droplet"?  Your own server for 5$ per month!
@@ -44,13 +46,16 @@ sudo mkswap /swapfile; sudo swapon /swapfile
 # For some reason, bitcoind is stuck in an old database version db4.8, 
 # which is not supported by newest ubuntu / debian anymore, so we get it manually:
 
-# Get db4.8 source, compile and install (takes 5 minutes)
+# Get db4.8 source, compile and install (takes 5 minutes - or 1 hour on RaspberryPi)
 wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
 tar zxf db-4.8.30.NC.tar.gz
 cd db-4.8.30.NC/build_unix; ../dist/configure --enable-cxx
 make; sudo make install
 cd ../..
-rm -R db-4.8.30.NC*   # delete the sources
+
+echo
+echo DB4.8 is installed, now delete all sources
+rm -Rf db-4.8.30.NC*   # delete the sources, -f because of 'remove write-protected ...' questions
 
 # Link the libraries 
 sudo ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/lib/libdb-4.8.so

@@ -4,13 +4,13 @@
 # part 2: download sources, build, install and configure
 # part 2 of the complete instructions how to compile a wallet daemon from github sources
 
-
-# new version 5.42
+echo 
+echo walletInstallMUE.sh by DRAKOIN - version v5.43
 # - relative paths where possible
 # - assumes 'yes' in apt-get
 # - sudo only where necessary ( cp to /usr/local/bin )
 # - automatically generate a random rpcpassword
-
+echo
 
 # where to find db4.8 tell your system  (needs to be redone after reboot)
 export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
@@ -71,4 +71,3 @@ echo
 echo Most important RPC commands: See   www.tiny.cc/linuxMUE    e.g. how to tip me:
 echo monetaryunitd sendtoaddress 7QzuXv5p2Ys181CsLiYR9PFvqwzCW1aPmK 111 ThanksToDrakoin ThanksForTutorial
 echo 
-
