@@ -5,11 +5,12 @@
 # part 2 of the complete instructions how to compile a wallet daemon from github sources
 
 echo 
-echo walletInstallMUE.sh by DRAKOIN - version v5.43
+echo walletInstallMUE.sh by DRAKOIN - version v5.44
 # - relative paths where possible
 # - assumes 'yes' in apt-get
 # - sudo only where necessary ( cp to /usr/local/bin )
 # - automatically generate a random rpcpassword
+# - delete the old .conf before making a new one.
 echo
 
 # where to find db4.8 tell your system  (needs to be redone after reboot)
@@ -29,8 +30,11 @@ sudo cp monetaryunitd /usr/local/bin
 cd ../..
 
 # create config file in HOME folder: 
-
 mkdir ~/.monetaryunit
+
+CONFFILE="~/.monetaryunit/monetaryunit.conf"
+[ -f "$CONFFILE" ] && rm $CONFFILE
+
 cat << "CONFIG" >> ~/.monetaryunit/monetaryunit.conf
 listen=1
 server=1
