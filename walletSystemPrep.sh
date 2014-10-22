@@ -8,7 +8,8 @@ echo
 echo walletSystemPrep.sh by DRAKOIN - version v5.43
 # - relative paths
 # - always assumes 'yes' in apt-get
-# rm -f because of 'remove write-protected ...' questions
+# - rm -f because of 'remove write-protected ...' questions
+# - check if /swapfile already exists
 
 echo 
 # I succeeded with this on Ubuntu 12.04 and Debian 7.0 x64.
@@ -39,14 +40,15 @@ sudo apt-get install git make automake build-essential libboost-all-dev nano -y
 # apt-get install yasm binutils libcurl4-openssl-dev openssl libssl-dev 
 
 # compiling needs a large SWAP file:
-sudo dd if=/dev/zero of=/swapfile bs=80M count=16
+[ -f /swapfile ] && sudo swapoff /swapfile
+sudo dd if=/dev/zero of=/swapfile bs=60M count=16
 sudo mkswap /swapfile; sudo swapon /swapfile
 
 
 # For some reason, bitcoind is stuck in an old database version db4.8, 
 # which is not supported by newest ubuntu / debian anymore, so we get it manually:
 
-# Get db4.8 source, compile and install (takes 5 minutes - or 1 hour on RaspberryPi)
+# Get db4.8 source, compile and install (takes 5 minutes - or > 1 hour on RaspberryPi)
 wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
 tar zxf db-4.8.30.NC.tar.gz
 cd db-4.8.30.NC/build_unix; ../dist/configure --enable-cxx
