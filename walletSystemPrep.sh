@@ -1,4 +1,4 @@
-# new version 22/10/2014 
+# new version v5.4
 # - relative paths
 # - always assumes 'yes' in apt-get
 
