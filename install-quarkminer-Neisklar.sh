@@ -1,7 +1,13 @@
-# Your quarkminer in the cloud - new manual
-# see www.tiny.cc/_____ for what this is.
-#
-# version 6.01
+echo
+echo install-quarkminer-Neisklar.sh
+echo
+echo Your quarkminer in the cloud - new manual
+echo  see  www.tiny.cc/linuxMUE   for what this is.
+echo version 6.03 by drakoin 
+echo reward me at 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - thanks!
+echo
+
+# 
 # - tested on RaspberryPi
 # - tested on DigitalOcean 5$ Droplet 
 #
@@ -9,14 +15,14 @@
 # A cheap linux virtual server (VPS) in the cloud, created in 55seconds
 # Sign up at digital ocean http://tiny.cc/digocean NL USA Singapur 
 # You probably get 10$ welcome bonus if you go through my link before signing up.
-#
+
 
 ## newest versions of everything:
 sudo apt-get update
 sudo apt-get upgrade -y
 
 ## necessary packages, no asking just do it:
-sudo apt-get install git screen automake libcurl4-gnutls-dev -y
+sudo apt-get install git screen cpulimit automake libcurl4-gnutls-dev -y
 ## in case git & screen is not installed yet.
 ## fixes the missing automake: error  aclocal: not found
 ## fixes the syntax error near unexpected token LIBCURL_CHECK_CONFIG
