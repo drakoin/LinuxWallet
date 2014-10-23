@@ -1,11 +1,11 @@
-# mueminerstart.sh
-# see www.tiny.cc/linuxMUE for what this is.
-#
-# version 6.04 by drakoin 
-# reward me at 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - Thanks!
+COPYRIGHT1="MUEminerStart"
+COPYRIGHT2="see www.tiny.cc/linuxMUE for what this is."
+COPYRIGHT3="version 6.09 by drakoin"
+COPYRIGHT4="reward me at 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - Thanks!"
 
 
 # username, for P2POOLS it is simply your WALLET ADDRESS:
+
 POOLUSERNAME=7JZwoTYXc4RV1TapAhBfxCWp1EPdyy6Rk3
 
 
@@ -38,7 +38,13 @@ KILLCPULIMIT=true
 rm -f mmmm.sh
 
 echo echo >mmmm.sh
+echo echo $COPYRIGHT1>>mmmm.sh
+echo echo $COPYRIGHT2>>mmmm.sh
+echo echo $COPYRIGHT3>>mmmm.sh
+echo echo $COPYRIGHT4>>mmmm.sh
+echo echo _>>mmmm.sh
 echo echo starting minerd with cpulimit $CPUPERCENT and nicelevel $NICELEVEL ... >>mmmm.sh
+echo echo username is $POOLUSERNAME>>mmmm.sh
 echo cpulimit -b -e minerd  -l $CPUPERCENT>>mmmm.sh
 echo echo>>mmmm.sh
 echo echo _____ CTRL-A D ________________ to leave this screen>>mmmm.sh
@@ -47,9 +53,9 @@ echo echo>>mmmm.sh
 echo nice -n $NICELEVEL minerd -a $ALGO -o $POOLADDRESS -p $POOLPASSWORD -u $POOLUSERNAME>>mmmm.sh
 
 if $KILLCPULIMIT; then
-	echo kill all process IDs with cpulimit and minerd in their commandline
+	echo kill all process IDs with cpulimit and minerd in commandline, get rid of old cpulimit processes 
 	kill $(ps gux | grep cpulimit | grep minerd |  tr -s ' ' | cut -d ' ' -f 2)
-	sleep 1.5
+	sleep 1.7
 fi
 
 chmod a+x ./mmmm.sh
