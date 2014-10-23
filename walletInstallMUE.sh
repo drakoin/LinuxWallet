@@ -5,13 +5,14 @@
 # part 2 of the complete instructions how to compile a wallet daemon from github sources
 
 echo 
-echo walletInstallMUE.sh by DRAKOIN - version v5.45
+echo walletInstallMUE.sh by DRAKOIN - version v6.11
 # - relative paths where possible
 # - assumes 'yes' in apt-get
 # - sudo only where necessary ( cp to /usr/local/bin )
 # - automatically generate a random rpcpassword
 # - delete the old .conf before making a new one.
 # - CONFFILE and CONFPATH variables
+# - corrected donation address
 echo
 
 # where to find db4.8 tell your system  (needs to be redone after reboot)
@@ -93,5 +94,5 @@ echo nano $CONFFILE
 echo "monetaryunitd stop; sleep 2; monetaryunitd"
 echo
 echo Most important RPC commands: See   www.tiny.cc/linuxMUE    e.g. how to tip me:
-echo monetaryunitd sendtoaddress 7QzuXv5p2Ys181CsLiYR9PFvqwzCW1aPmK 111 ThanksToDrakoin ThanksForTutorial
+echo monetaryunitd sendtoaddress 7E5tkMCg1VjGwVXVr8SDb5DPCaZ6DkzSHa 111 ThanksToDrakoin ThanksForTutorial
 echo 
