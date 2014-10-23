@@ -3,8 +3,8 @@ echo install-quarkminer-palmd.sh
 echo
 echo Your quarkminer in the cloud - new manual
 echo  see  www.tiny.cc/linuxMUE   for what this is.
-echo version 6.05 by drakoin 
-echo reward me at 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - thanks!
+echo version 6.06 by drakoin 
+echo reward me MUE at 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - thanks!
 echo
 
 # 
@@ -37,18 +37,18 @@ sudo apt-get install git screen cpulimit automake libcurl4-gnutls-dev -y
 # ./configure CFLAGS="-O3" --disable-sse2
 ## configure: WARNING: unrecognized options: --disable-sse2
 
-
 ## so we choose the Neisklar miner:
 #git clone https://github.com/Neisklar/quarkcoin-cpuminer Neisklar
 #cd Neisklar
 
-## so we choose the Neisklar miner:
+
+## so we choose the palmd miner:
 git clone git://github.com/palmd/quarkcoin-cpuminer palmd
 cd palmd
 
 
 ## fix the error possibly undefined macro: AC_MSG_ERROR
-#aclocal -I m4 --install
+aclocal -I m4 --install
 
 ./autogen.sh
 ./configure CFLAGS="-O3"
