@@ -1,5 +1,5 @@
 echo
-echo install-quarkminer-palmd.sh
+echo install-quarkminer-uncle-bob.sh
 echo
 echo Your quarkminer in the cloud - new manual
 echo  see  www.tiny.cc/linuxMUE   for what this is.
@@ -8,8 +8,8 @@ echo reward me MUE at 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - thanks!
 echo
 
 # 
-# - tested on RaspberryPi - DOES NOT WORK due to lack of sse2
-# - tested on DigitalOcean 5$ Droplet - DOES WORK PERFECTLY
+# - tested on RaspberryPi - DOES NOT WORK!
+# - tested on DigitalOcean 5$ Droplet 
 #
 # Droplet ? ? 
 # A cheap linux virtual server (VPS) in the cloud, created in 55seconds
@@ -27,10 +27,11 @@ sudo apt-get install git screen cpulimit automake libcurl4-gnutls-dev -y
 ## fixes the missing automake: error  aclocal: not found
 ## fixes the syntax error near unexpected token LIBCURL_CHECK_CONFIG
 
+
 ## git-clone the sourcecode from uncle-bob:
-# git clone https://github.com/uncle-bob/quarkcoin-cpuminer uncle-bob
-# cd uncle-bob
-## uncle-bob doesn't work, because it forces sse2 
+git clone https://github.com/uncle-bob/quarkcoin-cpuminer uncle-bob
+cd uncle-bob
+## uncle-bob doesn't work on RaspberrPi, because it forces sse2 
 ## jh_sse2_opt64.h:26:23: fatal error: emmintrin.h: No such file or directory
 ## and the switch --disable-sse2 is not recognized:
 # ./configure CFLAGS="-O3" --disable-sse2
@@ -40,19 +41,13 @@ sudo apt-get install git screen cpulimit automake libcurl4-gnutls-dev -y
 #git clone https://github.com/Neisklar/quarkcoin-cpuminer Neisklar
 #cd Neisklar
 
-
 ## so we choose the palmd miner:
-git clone git://github.com/palmd/quarkcoin-cpuminer palmd
-cd palmd
-
-# N.B. palmd miner does NOT work on RaspberryPi 
-# because of lack of SSE2 support,
-# and this miner forces the use of  #include "jh_sse2_opt64.h"
-# https://github.com/palmd/Cp3u/blob/master/quark.c#L15
+# git clone git://github.com/palmd/quarkcoin-cpuminer palmd
+# cd palmd
 
 
 ## fix the error possibly undefined macro: AC_MSG_ERROR
-aclocal -I m4 --install
+# aclocal -I m4 --install
 
 ./autogen.sh
 ./configure CFLAGS="-O3"
