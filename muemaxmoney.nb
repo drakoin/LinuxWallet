@@ -1,0 +1,171 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5239,        161]
+NotebookOptionsPosition[      4427,        127]
+NotebookOutlinePosition[      4762,        142]
+CellTagsIndexPosition[      4719,        139]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"COIN", " ", "=", " ", "100000"}], "\[IndentingNewLine]", 
+ RowBox[{"digits", "=", 
+  RowBox[{"Log10", "[", "COIN", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"MAXMONEY", " ", "=", " ", 
+  RowBox[{"1000000000000000", "*", "COIN"}]}]}], "Input",
+ CellChangeTimes->{{3.623168011018715*^9, 3.6231680624152193`*^9}, 
+   3.623168282626001*^9, {3.623168466580442*^9, 3.623168467461397*^9}, {
+   3.623169958087158*^9, 3.6231699706099586`*^9}, {3.6231700174771214`*^9, 
+   3.623170019548319*^9}}],
+
+Cell[BoxData["100000"], "Output",
+ CellChangeTimes->{
+  3.62316806326754*^9, 3.623168468669056*^9, {3.623169964619766*^9, 
+   3.623169972248045*^9}, 3.623170020891158*^9}],
+
+Cell[BoxData["5"], "Output",
+ CellChangeTimes->{
+  3.62316806326754*^9, 3.623168468669056*^9, {3.623169964619766*^9, 
+   3.623169972248045*^9}, 3.623170020915633*^9}],
+
+Cell[BoxData["100000000000000000000"], "Output",
+ CellChangeTimes->{
+  3.62316806326754*^9, 3.623168468669056*^9, {3.623169964619766*^9, 
+   3.623169972248045*^9}, 3.6231700209316587`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MAXint64", "=", 
+  RowBox[{
+   RowBox[{"Power", "[", 
+    RowBox[{"2", ",", "63"}], "]"}], "-", "1"}]}]], "Input",
+ CellChangeTimes->{{3.623167593794199*^9, 3.623167633621089*^9}, 
+   3.6231680011121492`*^9, {3.623168047070714*^9, 3.623168073561882*^9}}],
+
+Cell[BoxData["9223372036854775807"], "Output",
+ CellChangeTimes->{{3.623167619642509*^9, 3.623167635095437*^9}, 
+   3.623168074484404*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"howManyTimesTooLarge", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"MAXMONEY", "/", 
+    RowBox[{"Power", "[", 
+     RowBox[{"2", ",", "64"}], "]"}]}], " ", "//", "N"}]}]], "Input",
+ CellChangeTimes->{{3.6231678491528807`*^9, 3.6231678703196373`*^9}, {
+  3.6231680870092783`*^9, 3.623168115697329*^9}}],
+
+Cell[BoxData["5.421010862427522`"], "Output",
+ CellChangeTimes->{{3.6231678655910597`*^9, 3.623167871022779*^9}, {
+  3.623168089650742*^9, 3.623168118314994*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"remainder", " ", "=", " ", 
+  RowBox[{"Mod", "[", 
+   RowBox[{"MAXMONEY", ",", " ", 
+    RowBox[{"Power", "[", 
+     RowBox[{"2", ",", "64"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.623167884222273*^9, 3.6231678893681393`*^9}, {
+  3.6231680959275513`*^9, 3.623168144693321*^9}}],
+
+Cell[BoxData["7766279631452241920"], "Output",
+ CellChangeTimes->{{3.6231678859903097`*^9, 3.623167890062161*^9}, 
+   3.623168147766366*^9, 3.6231697448267107`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MAXMUE", "=", 
+  RowBox[{"AccountingForm", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"remainder", " ", "/", " ", "COIN"}], " ", "//", "N"}], ",", 
+    "100", ",", 
+    RowBox[{"DigitBlock", "\[Rule]", " ", "3"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.623168164092284*^9, 3.6231682324692783`*^9}, 
+   3.623169716509087*^9, {3.623169753142453*^9, 3.6231697873685007`*^9}, {
+   3.62316988785454*^9, 3.623169950842675*^9}, {3.623169996433364*^9, 
+   3.623170084322288*^9}, {3.6231702195435266`*^9, 3.623170268714425*^9}, {
+   3.6231703151520767`*^9, 3.6231703275429497`*^9}, {3.623170361909536*^9, 
+   3.623170411196703*^9}, {3.6231704642980967`*^9, 3.6231704805389023`*^9}, {
+   3.6231705329855967`*^9, 3.6231705340499153`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  InterpretationBox["\<\"77,662,796,314,522.41\"\>",
+   7.766279631452242*^13,
+   AutoDelete->True],
+  AccountingForm[#, 100, DigitBlock -> 3]& ]], "Output",
+ CellChangeTimes->{{3.623170038193679*^9, 3.62317005030268*^9}, 
+   3.6231700850298023`*^9, {3.623170229235955*^9, 3.623170269606348*^9}, {
+   3.623170322670123*^9, 3.623170328244976*^9}, {3.6231703658847513`*^9, 
+   3.623170412013063*^9}, {3.6231704706949863`*^9, 3.623170481377953*^9}, 
+   3.623170535016383*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 907},
+WindowMargins->{{Automatic, 116}, {Automatic, 48}},
+FrontEndVersion->"10.0 for Linux ARM (32-bit) (July 29, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 511, 9, 77, "Input"],
+Cell[1094, 33, 171, 3, 32, "Output"],
+Cell[1268, 38, 166, 3, 32, "Output"],
+Cell[1437, 43, 188, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1662, 51, 278, 6, 32, "Input"],
+Cell[1943, 59, 138, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2118, 66, 320, 7, 32, "Input"],
+Cell[2441, 75, 162, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2640, 82, 313, 7, 32, "Input"],
+Cell[2956, 91, 164, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3157, 98, 756, 14, 32, "Input"],
+Cell[3916, 114, 495, 10, 46, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
