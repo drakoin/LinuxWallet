@@ -5,7 +5,8 @@
 # part 1 of the complete instructions how to compile a wallet daemon from github sources
 
 echo 
-echo walletSystemPrep.sh by DRAKOIN - version v5.43
+echo walletSystemPrep.sh by DRAKOIN - version v6.20
+# - always assumes 'yes' also in very first apt-get update upgrade
 # - relative paths
 # - always assumes 'yes' in apt-get
 # - rm -f because of 'remove write-protected ...' questions
@@ -31,7 +32,7 @@ echo
 # sudo -i
 
 # update all software (all the installed packages)
-sudo apt-get update; sudo apt-get upgrade
+sudo apt-get update -y ; sudo apt-get upgrade  -y
 
 # prep the system to be able to git & compile & build
 sudo apt-get install git make automake build-essential libboost-all-dev nano -y
