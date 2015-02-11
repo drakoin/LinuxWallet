@@ -31,7 +31,7 @@ export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
 git clone https://github.com/MonetaryUnit/MUE-Src
 
 cd MUE-Src/src
-mkdir obj; chmod a+x leveldb/build_detect_platform # fix 2 problems with these sources
+chmod a+x leveldb/build_detect_platform # fix 2 problems with these sources
 make -f makefile.unix USE_UPNP=-
 sudo cp monetaryunitd /usr/local/bin
 cd ../..
