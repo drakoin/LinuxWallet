@@ -5,7 +5,11 @@
 # part 2 of the complete instructions how to compile a wallet daemon from github sources
 
 echo 
-echo walletInstallMUE.sh by DRAKOIN - version v6.11
+echo walletInstallMUE.sh by DRAKOIN - version v6.30 = 2015 February 11th
+# - new 2015 source, recompiled everything for testing that manual still works
+# - increased donation suggestion sum, due to very different MUE2BTC2USD situation
+
+# version v6.11:
 # - relative paths where possible
 # - assumes 'yes' in apt-get
 # - sudo only where necessary ( cp to /usr/local/bin )
@@ -23,7 +27,7 @@ export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
 # Wallet sources from github, and 
 # build the headless server daemon "monetaryunitd" (takes 7 minutes)
 
-git clone https://github.com/MonetaryUnit/MUE
+git clone https://github.com/MonetaryUnit/MUE-Src
 
 cd MUE/src
 mkdir obj; chmod a+x leveldb/build_detect_platform # fix 2 problems with these sources
@@ -94,5 +98,5 @@ echo nano $CONFFILE
 echo "monetaryunitd stop; sleep 2; monetaryunitd"
 echo
 echo Most important RPC commands: See   www.tiny.cc/linuxMUE    e.g. how to tip me:
-echo monetaryunitd sendtoaddress 7E5tkMCg1VjGwVXVr8SDb5DPCaZ6DkzSHa 111 ThanksToDrakoin ThanksForTutorial
+echo monetaryunitd sendtoaddress 7E5tkMCg1VjGwVXVr8SDb5DPCaZ6DkzSHa 111111 ThanksToDrakoin ThanksForTutorial
 echo 
