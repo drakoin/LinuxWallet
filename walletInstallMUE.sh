@@ -5,8 +5,9 @@
 # part 2 of the complete instructions how to compile a wallet daemon from github sources
 
 echo 
-echo walletInstallMUE.sh by DRAKOIN - version v6.30 = 2015 February 11th
-# - new 2015 source, recompiled everything for testing that manual still works
+echo walletInstallMUE.sh by DRAKOIN - version v6.31 = 2015 February 11th
+# - new 2015 source
+# - recompiled everything for testing that manual still works
 # - increased donation suggestion sum, due to very different MUE2BTC2USD situation
 
 # version v6.11:
@@ -29,7 +30,7 @@ export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
 
 git clone https://github.com/MonetaryUnit/MUE-Src
 
-cd MUE/src
+cd MUE-Src/src
 mkdir obj; chmod a+x leveldb/build_detect_platform # fix 2 problems with these sources
 make -f makefile.unix USE_UPNP=-
 sudo cp monetaryunitd /usr/local/bin
