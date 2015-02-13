@@ -1,5 +1,5 @@
 # sendmany
-# v6.34 by drakoin 26.2.2014 update 13.2.2015
+# v6.35 by drakoin 26.2.2014 update 13.2.2015
 # helps if too many too small transactions are polluting your wallet
 #
 # hint: make wallets on 2 machines, then send all from wallet1 to wallet2
@@ -12,6 +12,8 @@
 #
 # home of this is now on github:
 # https://github.com/drakoin/LinuxWallet/blob/master/sendmany.sh
+# for explanations see bitcointalk thread 488167:
+# https://bitcointalk.org/index.php?topic=488167
 #
 # how to use:
 # wget https://raw.githubusercontent.com/drakoin/LinuxWallet/master/sendmany.sh
