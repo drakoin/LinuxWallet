@@ -1,5 +1,5 @@
 # sendmany
-# v6.33 by drakoin 26.2.2014 update 13.2.2015
+# v6.34 by drakoin 26.2.2014 update 13.2.2015
 # helps if too many too small transactions are polluting your wallet
 #
 # hint: make wallets on 2 machines, then send all from wallet1 to wallet2
@@ -10,12 +10,19 @@
 # ./sendmany.sh ~/C-Note/c-noted CTVHuvvdJj61fC1mzFAQ4V1TrYBb8QTpiA 10 25 BundlingUpSmallTransactions
 # ./sendmany.sh monetaryunitd 793AKFakqZPGRyFWPp21dp8b9gRA7YFGnf 5 5000 BundlingUpSmallTransactions
 #
-# P.S.: No guarantees whatsoever. Your own risk. Start with very small packagesize and number.
-# If you run it, read the whole script before, so that you understand what it does.
-#
 # home of this is now on github:
-# 
+# https://github.com/drakoin/LinuxWallet/blob/master/sendmany.sh
 #
+# how to use:
+# wget https://raw.githubusercontent.com/drakoin/LinuxWallet/master/sendmany.sh
+# chmod u+x sendmany.sh
+# ./sendmany.sh
+#
+# P.S.: No guarantees whatsoever. Your own risk. 
+# If you run it, read the whole script before, so that you understand what it does.
+# Start with small packagesize and number, wait for confirmations, check target wallet.
+# Then raise the number and or packagesize. Then donate *g*.
+
 echo
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ] || [ -z "$5" ]; then
   echo "Usage: sendmany.sh walletd targetaddress number packagesize message"
