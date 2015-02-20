@@ -3,7 +3,7 @@ COPYRIGHT2="see www.tiny.cc/linuxMUE for what this is."
 COPYRIGHT3="version 6.36 by drakoin."
 COPYRIGHT4="reward me MUE to 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT"
 COPYRIGHT5="or BTC to 1M2zGd4LJTpt8fcsBTexFPQSq4gdYYHdA9 or"
-COPYRIGHT6="get your VPS at www.tiny.cc/digocean - thanks!"
+COPYRIGHT6="get your VPS at www.tiny.cc/digocean - Thanks!"
 
 # username, for P2POOLS it is simply your WALLET ADDRESS:
 
