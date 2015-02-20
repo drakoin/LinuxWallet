@@ -1,8 +1,9 @@
 COPYRIGHT1="MUEminerStart"
 COPYRIGHT2="see www.tiny.cc/linuxMUE for what this is."
-COPYRIGHT3="version 6.13 by drakoin."
-COPYRIGHT4="reward me MUE to my 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - thanks."
-
+COPYRIGHT3="version 6.36 by drakoin."
+COPYRIGHT4="reward me MUE to 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT"
+COPYRIGHT5="or BTC to 1M2zGd4LJTpt8fcsBTexFPQSq4gdYYHdA9 or"
+COPYRIGHT6="get your VPS at www.tiny.cc/digocean - thanks!"
 
 # username, for P2POOLS it is simply your WALLET ADDRESS:
 
@@ -47,6 +48,8 @@ echo echo $COPYRIGHT1>>mmmm.sh
 echo echo $COPYRIGHT2>>mmmm.sh
 echo echo $COPYRIGHT3>>mmmm.sh
 echo echo $COPYRIGHT4>>mmmm.sh
+echo echo $COPYRIGHT5>>mmmm.sh
+echo echo $COPYRIGHT6>>mmmm.sh
 echo echo >>mmmm.sh
 echo echo >>mmmm.sh
 echo echo starting minerd with cpulimit $CPUPERCENT and nicelevel $NICELEVEL ... >>mmmm.sh
