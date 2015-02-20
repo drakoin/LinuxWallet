@@ -1,4 +1,5 @@
 # Linux: Wallet & Miner - install and run
+You find detailed explanations about all this in my [bitcointalk thread](https://bitcointalk.org/index.php?topic=460178).
 
 ## Wallet:
 - walletSystemPrep.sh = prepares the system
@@ -17,6 +18,7 @@
 
 Consider to tip me! 
 There are BTC & MUE addresses in each script. 
+
 Or get your own 5$-VPS through me:  www.tiny.cc/digocean
 
 Thanks!
