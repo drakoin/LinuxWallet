@@ -5,10 +5,11 @@
 # part 2 of the complete instructions how to compile a wallet daemon from github sources
 
 echo 
-echo walletInstallMUE.sh by DRAKOIN - version v6.32 = 2015 February 11th
+echo walletInstallMUE.sh by DRAKOIN - version v6.36 = 2015 February 20th
 # - new 2015 source
 # - recompiled everything for testing that manual still works
 # - increased donation suggestion sum, due to very different MUE2BTC2USD situation
+# - added more ways to reward me
 
 # version v6.11:
 # - relative paths where possible
@@ -99,6 +100,7 @@ echo to change your RPC password, edit monetaryunit.conf , then restart server:
 echo nano $CONFFILE
 echo "monetaryunitd stop; sleep 2; monetaryunitd"
 echo
-echo Most important RPC commands: See   www.tiny.cc/linuxMUE    e.g. how to tip me:
+echo Most important RPC commands: See   www.tiny.cc/linuxMUE    e.g. how to tip me in MUE:
 echo monetaryunitd sendtoaddress 7E5tkMCg1VjGwVXVr8SDb5DPCaZ6DkzSHa 111111 ThanksToDrakoin ThanksForTutorial
 echo 
+echo Tips: BTC to 13Eh3XYwxbJaE9PkT6resFEAbzrC48yozN or get your VPS at www.tiny.cc/digocean - Thanks!
