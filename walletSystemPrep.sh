@@ -5,12 +5,13 @@
 # part 1 of the complete instructions how to compile a wallet daemon from github sources
 
 echo 
-echo walletSystemPrep.sh by DRAKOIN - version v6.20
+echo walletSystemPrep.sh by DRAKOIN - version v6.36
 # - always assumes 'yes' also in very first apt-get update upgrade
 # - relative paths
 # - always assumes 'yes' in apt-get
 # - rm -f because of 'remove write-protected ...' questions
 # - check if /swapfile already exists
+# - added more ways to tip me
 
 echo 
 # I succeeded with this on Ubuntu 12.04 and Debian 7.0 x64.
@@ -72,3 +73,4 @@ echo
 export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
 export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
 
+echo Tips: BTC to 13Eh3XYwxbJaE9PkT6resFEAbzrC48yozN or get your VPS at www.tiny.cc/digocean - Thanks!
