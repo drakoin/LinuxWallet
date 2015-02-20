@@ -3,8 +3,12 @@ echo install-quarkminer-Neisklar.sh
 echo
 echo Your quarkminer in the cloud - new manual
 echo  see  www.tiny.cc/linuxMUE   for what this is.
-echo version 6.08 by drakoin 
-echo reward me MUE at 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - thanks!
+echo version 6.36 by drakoin 
+echo
+echo reward me 
+echo MUE to 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT or
+echo BTC to 1M2zGd4LJTpt8fcsBTexFPQSq4gdYYHdA9 or
+echo get your VPS at www.tiny.cc/digocean - Thanks!
 echo
 
 # 
