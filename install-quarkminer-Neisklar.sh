@@ -1,68 +1,64 @@
-COPYRIGHT1="MUEminerStart"
-COPYRIGHT2="see www.tiny.cc/linuxMUE for what this is."
-COPYRIGHT3="version 6.36 by drakoin."
-COPYRIGHT4="reward me MUE to 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT"
-COPYRIGHT5="or BTC to 1M2zGd4LJTpt8fcsBTexFPQSq4gdYYHdA9 or"
-COPYRIGHT6="get your VPS at www.tiny.cc/digocean - thanks!"
+echo
+echo install-quarkminer-Neisklar.sh
+echo
+echo Your quarkminer in the cloud - new manual
+echo  see  www.tiny.cc/linuxMUE   for what this is.
+echo version 6.08 by drakoin 
+echo reward me MUE at 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT - thanks!
+echo
 
-# username, for P2POOLS it is simply your WALLET ADDRESS:
+# 
+# - tested on RaspberryPi  - DOES WORK PERFECTLY
+# - tested on DigitalOcean 5$ Droplet  - DOES WORK PERFECTLY
+#
+# Droplet ? ? 
+# A cheap linux virtual server (VPS) in the cloud, created in 55seconds
+# Sign up at digital ocean http://tiny.cc/digocean NL USA Singapur 
+# You probably get 10$ welcome bonus if you go through my link before signing up.
 
-POOLUSERNAME=7JZwoTYXc4RV1TapAhBfxCWp1EPdyy6Rk3
+
+## newest versions of everything:
+sudo apt-get update
+sudo apt-get upgrade -y
+
+## necessary packages, no asking just do it:
+sudo apt-get install git screen cpulimit automake libcurl4-gnutls-dev -y
+## in case git & screen is not installed yet.
+## fixes the missing automake: error  aclocal: not found
+## fixes the syntax error near unexpected token LIBCURL_CHECK_CONFIG
 
 
 
-# cpulimit will watch your miner, and keep it at a moderate level
-# Makes a lot of sense, if you use your machine for anything else, 
-# or if it is a virtual server, and your provider should not get 
-# suspicious that you are using their machines for mining.
-# (N.B.: If it's a quad core, then maximum is 400)
-CPUPERCENT=50
+## uncle-bob miner:
+#git clone https://github.com/uncle-bob/quarkcoin-cpuminer uncle-bob
+#cd uncle-bob
+## uncle-bob doesn't work on RaspberrPi, because it forces sse2 
+## jh_sse2_opt64.h:26:23: fatal error: emmintrin.h: No such file or directory
+## and the switch --disable-sse2 is not recognized:
+# ./configure CFLAGS="-O3" --disable-sse2
+## configure: WARNING: unrecognized options: --disable-sse2
 
-# 19 = the miner will always step aside if there is something more important to do
-NICELEVEL=19
+## palmd miner:
+# git clone git://github.com/palmd/quarkcoin-cpuminer palmd
+# cd palmd
+# N.B. palmd miner does NOT work on RaspberryPi 
+# because of lack of SSE2 support,
+# and this miner forces the use of  #include "jh_sse2_opt64.h"
+# https://github.com/palmd/Cp3u/blob/master/quark.c#L15
 
-# you probably do NOT have to change anything below here.
-##########################################################
+## Neisklar miner:
+git clone https://github.com/Neisklar/quarkcoin-cpuminer Neisklar
+cd Neisklar
 
-# address of your pool, incl protocol, and port:
-POOLADDRESS=stratum+tcp://muepool.com:3333
 
-# password is usually x
-POOLPASSWORD=x
 
-# algorithm
-ALGO=quark
+## fix the error possibly undefined macro: AC_MSG_ERROR
+aclocal -I m4 --install
 
-# yes, you want that to be true, otherwise the cpulimit tasks are piling up:
-KILLCPULIMIT=true
+./autogen.sh
+./configure CFLAGS="-O3"
+make
+sudo make install
 
-rm -f mmmm.sh
-
-echo echo >mmmm.sh
-echo echo $COPYRIGHT1>>mmmm.sh
-echo echo $COPYRIGHT2>>mmmm.sh
-echo echo $COPYRIGHT3>>mmmm.sh
-echo echo $COPYRIGHT4>>mmmm.sh
-echo echo $COPYRIGHT5>>mmmm.sh
-echo echo $COPYRIGHT6>>mmmm.sh
-echo echo >>mmmm.sh
-echo echo >>mmmm.sh
-echo echo starting minerd with cpulimit $CPUPERCENT and nicelevel $NICELEVEL ... >>mmmm.sh
-echo echo username is $POOLUSERNAME>>mmmm.sh
-echo cpulimit -b -e minerd  -l $CPUPERCENT>>mmmm.sh
-echo echo>>mmmm.sh
-echo echo _____ CTRL-A D ________________ to leave this screen>>mmmm.sh
-echo echo _____ screen -r miner _________ to return to this screen>>mmmm.sh
-echo echo>>mmmm.sh
-echo nice -n $NICELEVEL minerd -a $ALGO -o $POOLADDRESS -p $POOLPASSWORD -u $POOLUSERNAME>>mmmm.sh
-
-if $KILLCPULIMIT; then
-	echo kill all process IDs with cpulimit and minerd in commandline, get rid of old cpulimit processes 
-	kill $(ps gux | grep cpulimit | grep minerd |  tr -s ' ' | cut -d ' ' -f 2)
-	sleep 1.7
-fi
-
-chmod a+x ./mmmm.sh
-mv mmmm.sh minerd_$POOLUSERNAME.sh
-
-screen -S miner ./minerd_$POOLUSERNAME.sh
+cd ..
+minerd --version
