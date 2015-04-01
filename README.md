@@ -9,7 +9,7 @@ You find detailed explanations about all this in my [bitcointalk thread](https:/
 
 ## Miner:
 - install-quarkminer-Neisklar.sh = installs miner from sources
-- mueminerstart.sh = mines to my wallet, as a background process, with nicelevel 19, and 50% CPU usage limit
+- mueminerstart.sh = mines to my wallet, as a background process, with nicelevel 19, and 50% CPU usage limit (now directing to e-pool.net).
 
 ## Coin design:
 - muemaxmoney.nb = max money calculations in Mathematica(tm)
@@ -20,6 +20,7 @@ Consider to tip me!
 There are BTC & MUE addresses in each script. 
 
 Or get your own 5$-VPS through me:  www.tiny.cc/digocean
+- which will give me rewards, and you will get 10$ welcome bonus!
 
 Thanks!
 

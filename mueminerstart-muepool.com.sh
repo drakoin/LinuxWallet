@@ -1,6 +1,6 @@
 COPYRIGHT1="MUEminerStart"
 COPYRIGHT2="see www.tiny.cc/linuxMUE for what this is."
-COPYRIGHT3="version 6.40 by drakoin."
+COPYRIGHT3="version 6.36 by drakoin."
 COPYRIGHT4="reward me MUE to 7CYDzgs5wyXXZqBWJJPmuXkovXbESrSTKT"
 COPYRIGHT5="or BTC to 1M2zGd4LJTpt8fcsBTexFPQSq4gdYYHdA9 or"
 COPYRIGHT6="get your VPS at www.tiny.cc/digocean - thanks!"
@@ -25,7 +25,7 @@ NICELEVEL=19
 ##########################################################
 
 # address of your pool, incl protocol, and port:
-POOLADDRESS=stratum+tcp://p2pool.e-pool.net:8963
+POOLADDRESS=stratum+tcp://muepool.com:3333
 
 # password is usually x
 POOLPASSWORD=x
