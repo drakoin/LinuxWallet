@@ -1,5 +1,5 @@
 # sendmany
-# v6.35 by drakoin 26.2.2014 update 13.2.2015
+# v6.42 by drakoin 26.2.2014 update 01.05.2015
 # helps if too many too small transactions are polluting your wallet
 #
 # hint: make wallets on 2 machines, then send all from wallet1 to wallet2
@@ -9,6 +9,7 @@
 # examples  
 # ./sendmany.sh ~/C-Note/c-noted CTVHuvvdJj61fC1mzFAQ4V1TrYBb8QTpiA 10 25 BundlingUpSmallTransactions
 # ./sendmany.sh monetaryunitd 793AKFakqZPGRyFWPp21dp8b9gRA7YFGnf 5 5000 BundlingUpSmallTransactions
+# ./sendmany.sh Covend CHDavnxvV93jLBWXmVFFwU66uNJ3jXFSxm 20 8 Let_us_together_save_COV_!
 #
 # home of this is now on github:
 # https://github.com/drakoin/LinuxWallet/blob/master/sendmany.sh
@@ -61,5 +62,6 @@ echo Please consider to tip drakoin for this script at:
 echo in BTC = 1JLKNFxKjkU3YsLs38y4e672iWiXBeFYP3 
 echo or C-Notes = CTVHuvvdJj61fC1mzFAQ4V1TrYBb8QTpiA 
 echo or MUE = 793AKFakqZPGRyFWPp21dp8b9gRA7YFGnf 
+echo or COV = CTLx4Qz7j9sBG5AbC2TT5MAUphdDdbMF7r
 echo Thanks!
 echo .
